@@ -226,25 +226,36 @@
                             theme_text_color: "Error"
                             
                     
-                    AnchorLayout:
-                        anchor_x: 'right'
-                        anchor_y: 'bottom'
+                AnchorLayout:
+                    anchor_x: 'right'
+                    anchor_y: 'bottom'
+                    
+                    MDBoxLayout:
+                        spacing:5
+                        padding:10
+                        adaptive_size: True
                         
-                        MDBoxLayout:
-                            spacing:5
-                            padding:10
-                            adaptive_size: True
+                        MDRaisedButton:
+                            id: continuar
+                            text: "Continuar"
+                            on_press: root.Continue()
                             
-                            MDRaisedButton:
-                                id: continuar
-                                text: "Continuar"
-                                on_press: root.Continue()
-                                
-                            MDFlatButton:
-                                text: "Voltar"
-                                
+                        MDFlatButton:
+                            text: "Voltar"
                             
-                            
+                        
+                AnchorLayout:
+                    anchor_x: 'left'
+                    anchor_y: 'bottom'
+                    
+                    MDBoxLayout:
+                        spacing:5
+                        padding:20
+                        adaptive_height: True
+                        
+                        MDLabel:
+                            id: contador
+                            text: "Rotina: 1"
                             
                     
                     
