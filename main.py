@@ -4,7 +4,6 @@ from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.gridlayout import MDGridLayout
 
-from kivy import utils 
 
 
 class Toggle(MDGridLayout):
@@ -36,6 +35,27 @@ class ScreenPreparacao(Screen):
                 child.md_bg_color = app.theme_cls.primary_light
             except:
                 pass
+            
+    def Save(self):
+        sequencia = ''
+        for child in self.ids.sequencia.children:
+            if child.md_bg_color != app.theme_cls.primary_light:
+                sequencia = child.text
+                break
+        
+        data = {"Frase1":self.ids.frase1.text,
+                "Frase2":self.ids.frase2.text,
+                "Frase3":self.ids.frase3.text,
+                "Sequencia": sequencia}
+        
+        for key in data:
+            if data[key] == "":
+                self.ids.error.text = 'Preencha todos os itens antes de continuar'
+                return
+        
+        #ENVIAR PARA O DRIVE()      ADICIONAR NO FUTURO
+        self.Return()
+        #app.screenMain.ids.TabPreparacao.ids."".disabled = True
 
 class ScreenAplicacao(Screen):
     def Return(self):

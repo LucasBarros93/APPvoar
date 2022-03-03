@@ -10,6 +10,7 @@
             height: self.minimum_height
             
             MDRectangleFlatIconButton:
+                id: Completar
                 icon: "android"
                 text: "Completar Frases Curtas"
                 size_hint: None, None
@@ -153,6 +154,7 @@
                         MDRaisedButton:
                             id: continuar
                             text: "Salvar"
+                            on_press: root.Save()
                                 
                         
         MDNavigationDrawer:
