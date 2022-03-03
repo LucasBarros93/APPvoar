@@ -1,0 +1,287 @@
+#:import utils kivy.utils
+
+<TabPreparacao>
+    ScrollView
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 10
+            size_hint: (1,None)
+            height: self.minimum_height
+            
+            MDRectangleFlatIconButton:
+                icon: "android"
+                text: "Completar Frases Curtas"
+                size_hint: None, None
+                width: root.width*0.9
+                height: root.height*.25
+                pos_hint: {"center_x": .5}
+                on_press: app.sm.current = "Preparacao"
+
+            MDRectangleFlatIconButton:
+                icon: "android"
+                text: "Nomeação de Ação"
+                size_hint: None, None
+                width: root.width*0.9
+                height: root.height*.25
+                pos_hint: {"center_x": .5}
+                on_press: app.sm.current = "Preparacao"
+                
+            MDRectangleFlatIconButton:
+                icon: "android"
+                text: "Imitação Motora"
+                size_hint: None, None
+                width: root.width*0.9
+                height: root.height*.25
+                pos_hint: {"center_x": .5}
+                on_press: app.sm.current = "Preparacao"
+                
+
+<TabAplicacao>
+    ScrollView
+        MDBoxLayout:
+            orientation: "vertical"
+            padding: 20
+            spacing: 10
+            size_hint: (1,None)
+            height: self.minimum_height
+            
+            MDRaisedButton:
+                text: "Completar Frases Curtas"
+                font_size: "18sp"
+                size_hint: None, None
+                width: root.width*.9
+                height: root.height*.25
+                pos_hint: {"center_x": .5}
+                on_press: app.sm.current = "Aplicacao"
+
+            MDRaisedButton:
+                text: "Nomeação de Ação"
+                font_size: "18sp"
+                size_hint: None, None
+                width: root.width*.9
+                height: root.height*.25
+                pos_hint: {"center_x": .5}
+                on_press: app.sm.current = "Aplicacao"
+                
+            MDRaisedButton:
+                text: "Imitação Motora"
+                font_size: "18sp"
+                size_hint: None, None
+                width: root.width*.9
+                height: root.height*.25
+                pos_hint: {"center_x": .5}
+                on_press: app.sm.current = "Aplicacao"
+    
+<ScreenPreparacao>
+    MDNavigationLayout:
+
+        ScreenManager:
+   
+            MDScreen:   
+                MDBoxLayout:
+                    orientation: "vertical"
+
+                    MDToolbar:
+                        title: "Voar"
+                        icon: "git"
+                        left_action_items: [["arrow-left", lambda x: root.Return()],["menu", lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [["git", lambda x: x]]
+                        mode: "end"
+                    
+                    MDBoxLayout:
+                        padding: 20
+                        spacing: 10
+                        adaptive_height: True
+                        orientation: "vertical"
+                        
+                        MDTextField:
+                            id: frase1
+                            hint_text: "Frase 1"
+                            mode: "rectangle"
+                    
+                        MDTextField:
+                            id: frase2
+                            hint_text: "Frase 2"
+                            mode: "rectangle"
+                    
+                        MDTextField:
+                            id: frase3
+                            hint_text: "Frase 3"
+                            mode: "rectangle"
+                            
+                        MDLabel:
+                            text: "Sequencia:"
+                            halign: "center"
+                            font_size: 21
+                            
+                        Toggle:
+                            id: sequencia
+                            cols: 4
+                            spacing: 10
+                            padding: 20
+                            adaptive_size: True
+                            pos_hint: {"center_x":.5}
+                        
+                            MDFillRoundFlatButton:
+                                text: "A"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: sequencia.onClick(self)
+
+                            MDFillRoundFlatButton:
+                                text: "B"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: sequencia.onClick(self) 
+                        
+                            MDFillRoundFlatButton:
+                                text: "C"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: sequencia.onClick(self)
+
+                        MDLabel:
+                            id: error
+                            text: ""
+                            halign: "center"
+                            font_size: 14
+                            theme_text_color: "Error"
+ 
+                    AnchorLayout:
+                        anchor_x: 'right'
+                        anchor_y: 'bottom'
+                        padding: 10
+                
+                        MDRaisedButton:
+                            id: continuar
+                            text: "Salvar"
+                                
+                        
+        MDNavigationDrawer:
+            id: nav_drawer
+            md_bg_color: utils.get_color_from_hex("#f7f4e7")
+            
+            
+            
+            
+<ScreenAplicacao>
+    MDNavigationLayout:
+
+        ScreenManager:
+   
+            MDScreen:   
+                MDBoxLayout:
+                    orientation: "vertical"
+
+                    MDToolbar:
+                        title: "Voar"
+                        icon: "git"
+                        left_action_items: [["arrow-left", lambda x: root.Return()],["menu", lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [["git", lambda x: x]]
+                        mode: "end"
+
+                    MDBoxLayout:
+                        padding: 10
+                        spacing: 20
+                        orientation: "vertical"
+                        
+                        MDLabel:
+                            id: FraseAplicacao
+                            text: "frase1"
+                            halign: "center"
+                            font_size: 21
+                            
+                        Toggle:
+                            id: notas
+                            cols: 4
+                            spacing: 10
+                            adaptive_size: True
+                            pos_hint: {"center_x":.5}
+                        
+                            MDFillRoundFlatButton:
+                                text: "+"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: notas.onClick(self)
+                            
+                            MDFillRoundFlatButton:
+                                text: "D+"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: notas.onClick(self)
+                                
+                            MDFillRoundFlatButton:
+                                text: "-"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: notas.onClick(self)
+                                
+                            MDFillRoundFlatButton:
+                                text: "D-"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: notas.onClick(self)
+                                
+                        MDLabel:
+                            id: error
+                            text: ""
+                            halign: "center"
+                            font_size: 14
+                            theme_text_color: "Error"
+                            
+                    
+                    AnchorLayout:
+                        anchor_x: 'right'
+                        anchor_y: 'bottom'
+                        
+                        MDBoxLayout:
+                            spacing:5
+                            padding:10
+                            adaptive_size: True
+                            
+                            MDRaisedButton:
+                                id: continuar
+                                text: "Continuar"
+                                on_press: root.Continue()
+                                
+                            MDFlatButton:
+                                text: "Voltar"
+                                
+                            
+                            
+                            
+                    
+                    
+        MDNavigationDrawer:
+            id: nav_drawer
+            md_bg_color: utils.get_color_from_hex("#f7f4e7")
+
+
+
+<ScreenMain>
+	MDNavigationLayout:
+
+        ScreenManager:
+   
+            MDScreen:   
+                MDBoxLayout:
+                    orientation: "vertical"
+
+                    MDToolbar:
+                        title: "Voar"
+                        icon: "git"
+                        left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [["git", lambda x: x]]
+                        mode: "end"
+
+                    MDTabs:
+                        id: tabs
+                        
+                        TabPreparacao:
+                            id: TabPreparacao
+                            title: "Preparacao"
+                            
+                        TabAplicacao:
+                            id: TabAplicacao
+                            title: "Aplicacao"
+                        
+                    
+        MDNavigationDrawer:
+            id: nav_drawer
+            md_bg_color: utils.get_color_from_hex("#f7f4e7")
+            
+            #ContentNavigationDrawer:
