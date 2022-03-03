@@ -74,18 +74,27 @@ class ScreenAplicacao(Screen):
             self.ids.error.text = 'De uma nota antes de continuar'
             return
         
-        listaFrases = ["frase1","frase2","frase3"] #PROVISRIO MUDAR COM DATABASE
-        
-        index = listaFrases.index(self.ids.FraseAplicacao.text)
-        
-        try:
-            self.ids.FraseAplicacao.text = listaFrases[index+1]
-        except:
-            self.ids.FraseAplicacao.text = listaFrases[0]
-            
         self.ids.error.text = ''
         
+        
+        listaFrases = ["frase1","frase2","frase3"] #PROVISRIO MUDAR COM DATABASE
+        sequencia = "C" #PROVISRIO MUDAR COM DATABASE
+        
         rotina = int(self.ids.contador.text[-1]) #da merda se passar de 10
+        
+        if rotina > 8:
+            app.sm.current = "Main"
+            self.ids.contador.text = "Rotina: 1"
+            
+            nextFrase = app.sequencias[sequencia][0]  
+            self.ids.FraseAplicacao.text = listaFrases[nextFrase]
+            return
+        
+        
+        nextFrase = app.sequencias[sequencia][rotina]       
+        self.ids.FraseAplicacao.text = listaFrases[nextFrase]
+        
+        
         self.ids.contador.text = f"Rotina: {rotina+1}"
 
 
@@ -97,7 +106,11 @@ class TabAplicacao(FloatLayout,MDTabsBase):
 
 class VoarApp(MDApp):
     def build(self):
-
+        
+        self.sequencias = {"A":[0,1,2,0,1,2,0,1,2],     #A IDEIA É TROCAR
+                           "B":[2,1,0,2,1,0,2,1,0],     #PELAS REAIS
+                           "C":[0,0,0,1,1,1,2,2,2]}
+        
         self.theme_cls.primary_palette = "Purple" 
         
         self.sm = ScreenManager(transition=NoTransition())
