@@ -84,6 +84,9 @@ class ScreenAplicacao(Screen):
             self.ids.FraseAplicacao.text = listaFrases[0]
             
         self.ids.error.text = ''
+        
+        rotina = int(self.ids.contador.text[-1]) #da merda se passar de 10
+        self.ids.contador.text = f"Rotina: {rotina+1}"
 
 
 class TabPreparacao(FloatLayout,MDTabsBase):
@@ -94,6 +97,7 @@ class TabAplicacao(FloatLayout,MDTabsBase):
 
 class VoarApp(MDApp):
     def build(self):
+
         self.theme_cls.primary_palette = "Purple" 
         
         self.sm = ScreenManager(transition=NoTransition())
