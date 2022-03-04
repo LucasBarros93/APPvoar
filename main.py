@@ -16,9 +16,10 @@ class Toggle(MDGridLayout):
                 
 
 
-
 class ScreenMain(Screen):
     pass
+
+
 
 class ScreenPreparacao(Screen):
     def Return(self):
@@ -57,7 +58,13 @@ class ScreenPreparacao(Screen):
         self.Return()
         #app.screenMain.ids.TabPreparacao.ids."".disabled = True
 
+
+
 class ScreenAplicacao(Screen):
+    
+    listaFrases = ["frase1","frase2","frase3"] #PROVISRIO MUDAR COM DATABASE
+    sequencia = "B" #PROVISRIO MUDAR COM DATABASE
+    
     def Return(self):
         app.sm.current = "Main"
         
@@ -77,32 +84,50 @@ class ScreenAplicacao(Screen):
         self.ids.error.text = ''
         
         
-        listaFrases = ["frase1","frase2","frase3"] #PROVISRIO MUDAR COM DATABASE
-        sequencia = "C" #PROVISRIO MUDAR COM DATABASE
-        
         rotina = int(self.ids.contador.text[-1]) #da merda se passar de 10
         
         if rotina > 8:
             app.sm.current = "Main"
             self.ids.contador.text = "Rotina: 1"
             
-            nextFrase = app.sequencias[sequencia][0]  
-            self.ids.FraseAplicacao.text = listaFrases[nextFrase]
+            nextFrase = app.sequencias[self.sequencia][0]  
+            self.ids.FraseAplicacao.text = self.listaFrases[nextFrase]
             return
         
         
-        nextFrase = app.sequencias[sequencia][rotina]       
-        self.ids.FraseAplicacao.text = listaFrases[nextFrase]
+        nextFrase = app.sequencias[self.sequencia][rotina]       
+        self.ids.FraseAplicacao.text = self.listaFrases[nextFrase]
         
         
         self.ids.contador.text = f"Rotina: {rotina+1}"
+        
+    def Voltar(self):
+        
+        self.ids.error.text = ''
+        
+        rotina = int(self.ids.contador.text[-1])-1
+                
+        if rotina < 1:
+            self.ids.error.text = 'Primeira rotina, impossivel voltar.'
+            return
+        
+        previousFrase = app.sequencias[self.sequencia][rotina-1]       
+        self.ids.FraseAplicacao.text = self.listaFrases[previousFrase]
+        
+        
+        self.ids.contador.text = f"Rotina: {rotina}"
+
 
 
 class TabPreparacao(FloatLayout,MDTabsBase):
     pass
 
+
+
 class TabAplicacao(FloatLayout,MDTabsBase):
     pass
+
+
 
 class VoarApp(MDApp):
     def build(self):
