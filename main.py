@@ -85,10 +85,14 @@ class ScreenAplicacao(Screen):
         
         
         rotina = int(self.ids.contador.text[-1]) #da merda se passar de 10
-        
+        if rotina+1 == 9:
+            self.ids.continuar.text = "Terminar"
+            self.ids.error.text = "Ultima rotina..."
+            
         if rotina > 8:
             app.sm.current = "Main"
             self.ids.contador.text = "Rotina: 1"
+            self.ids.continuar.text = "Continuar"
             
             nextFrase = app.sequencias[self.sequencia][0]  
             self.ids.FraseAplicacao.text = self.listaFrases[nextFrase]
@@ -104,6 +108,7 @@ class ScreenAplicacao(Screen):
     def Voltar(self):
         
         self.ids.error.text = ''
+        self.ids.continuar.text = "Continuar"
         
         rotina = int(self.ids.contador.text[-1])-1
                 
