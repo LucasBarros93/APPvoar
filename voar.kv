@@ -1,8 +1,9 @@
 #:import utils kivy.utils
 
 <TabPreparacao>
-    ScrollView
+    ScrollView:
         MDBoxLayout:
+            id: BotoesPrep
             orientation: "vertical"
             padding: 20
             spacing: 10
@@ -10,37 +11,41 @@
             height: self.minimum_height
             
             MDRectangleFlatIconButton:
-                id: Completar
+                id: C
                 icon: "android"
                 text: "Completar Frases Curtas"
                 size_hint: None, None
                 width: root.width*0.9
                 height: root.height*.25
                 pos_hint: {"center_x": .5}
-                on_press: app.sm.current = "Preparacao"
+                on_press: app.sm.current = "PreparacaoC"
 
             MDRectangleFlatIconButton:
+                id: N
                 icon: "android"
                 text: "Nomeação de Ação"
                 size_hint: None, None
                 width: root.width*0.9
                 height: root.height*.25
                 pos_hint: {"center_x": .5}
-                on_press: app.sm.current = "Preparacao"
+                on_press: app.sm.current = "PreparacaoN"
                 
             MDRectangleFlatIconButton:
+                id: I
                 icon: "android"
                 text: "Imitação Motora"
                 size_hint: None, None
                 width: root.width*0.9
                 height: root.height*.25
                 pos_hint: {"center_x": .5}
-                on_press: app.sm.current = "Preparacao"
-                
+                on_press: app.sm.current = "PreparacaoI"
+
+
 
 <TabAplicacao>
-    ScrollView
+    ScrollView:
         MDBoxLayout:
+            id: BotoesApli
             orientation: "vertical"
             padding: 20
             spacing: 10
@@ -48,32 +53,37 @@
             height: self.minimum_height
             
             MDRaisedButton:
+                id: C
                 text: "Completar Frases Curtas"
                 font_size: "18sp"
                 size_hint: None, None
                 width: root.width*.9
                 height: root.height*.25
                 pos_hint: {"center_x": .5}
-                on_press: app.sm.current = "Aplicacao"
+                on_press: app.sm.current = "AplicacaoC"
 
             MDRaisedButton:
+                id: N
                 text: "Nomeação de Ação"
                 font_size: "18sp"
                 size_hint: None, None
                 width: root.width*.9
                 height: root.height*.25
                 pos_hint: {"center_x": .5}
-                on_press: app.sm.current = "Aplicacao"
+                on_press: app.sm.current = "AplicacaoN"
                 
             MDRaisedButton:
+                id: I
                 text: "Imitação Motora"
                 font_size: "18sp"
                 size_hint: None, None
                 width: root.width*.9
                 height: root.height*.25
                 pos_hint: {"center_x": .5}
-                on_press: app.sm.current = "Aplicacao"
-    
+                on_press: app.sm.current = "AplicacaoI"
+
+
+
 <ScreenPreparacao>
     MDNavigationLayout:
 
@@ -160,10 +170,9 @@
         MDNavigationDrawer:
             id: nav_drawer
             md_bg_color: utils.get_color_from_hex("#f7f4e7")
-            
-            
-            
-            
+
+
+
 <ScreenAplicacao>
     MDNavigationLayout:
 

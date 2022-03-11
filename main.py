@@ -56,7 +56,13 @@ class ScreenPreparacao(Screen):
         
         #ENVIAR PARA O DRIVE()      ADICIONAR NO FUTURO
         self.Return()
-        #app.screenMain.ids.TabPreparacao.ids."".disabled = True
+        
+        i = self.name[-1]
+        print(i)
+        print(app.screenMain.ids.TabPreparacao.ids)
+        print(app.screenMain.ids.TabPreparacao.ids[i])
+        app.screenMain.ids.TabPreparacao.ids[i].disabled = True
+        app.screenMain.ids.TabAplicacao.ids[i].disabled = False
 
 
 
@@ -135,6 +141,11 @@ class TabAplicacao(FloatLayout,MDTabsBase):
 
 
 class VoarApp(MDApp):
+    def on_start(self):
+        
+        for child in self.screenMain.ids.TabAplicacao.ids.BotoesApli.children:
+            child.disabled = True
+        
     def build(self):
         
         self.sequencias = {"A":[0,1,2,0,1,2,0,1,2],     #A IDEIA É TROCAR
@@ -148,11 +159,23 @@ class VoarApp(MDApp):
         self.screenMain = ScreenMain(name="Main")
         self.sm.add_widget(self.screenMain)
         
-        self.screenPreparacao = ScreenPreparacao(name="Preparacao")
-        self.sm.add_widget(self.screenPreparacao)
+        self.screenPreparacaoC = ScreenPreparacao(name="PreparacaoC")
+        self.sm.add_widget(self.screenPreparacaoC)
         
-        self.screenAplicacao = ScreenAplicacao(name="Aplicacao")
-        self.sm.add_widget(self.screenAplicacao)
+        self.screenAplicacaoC = ScreenAplicacao(name="AplicacaoC")
+        self.sm.add_widget(self.screenAplicacaoC)
+        
+        self.screenPreparacaoN = ScreenPreparacao(name="PreparacaoN")
+        self.sm.add_widget(self.screenPreparacaoN)
+        
+        self.screenAplicacaoN = ScreenAplicacao(name="AplicacaoN")
+        self.sm.add_widget(self.screenAplicacaoN)
+        
+        self.screenPreparacaoI = ScreenPreparacao(name="PreparacaoI")
+        self.sm.add_widget(self.screenPreparacaoI)
+        
+        self.screenAplicacaoI = ScreenAplicacao(name="AplicacaoI")
+        self.sm.add_widget(self.screenAplicacaoI)
         
         return self.sm
         
