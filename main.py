@@ -58,18 +58,21 @@ class ScreenPreparacao(Screen):
         self.Return()
         
         i = self.name[-1]
-        print(i)
-        print(app.screenMain.ids.TabPreparacao.ids)
-        print(app.screenMain.ids.TabPreparacao.ids[i])
         app.screenMain.ids.TabPreparacao.ids[i].disabled = True
         app.screenMain.ids.TabAplicacao.ids[i].disabled = False
-
-
+        app.sm.get_screen(f'Aplicacao{i}').setting([data["Frase1"],data["Frase2"],data["Frase3"]],
+                                           data["Sequencia"])
+        
+        
 
 class ScreenAplicacao(Screen):
     
-    listaFrases = ["frase1","frase2","frase3"] #PROVISRIO MUDAR COM DATABASE
-    sequencia = "B" #PROVISRIO MUDAR COM DATABASE
+    def setting(self, listaFrases, sequencia):
+        self.listaFrases = listaFrases
+        self.sequencia = sequencia
+        
+        nextFrase = app.sequencias[self.sequencia][0]  
+        self.ids.FraseAplicacao.text = self.listaFrases[nextFrase]
     
     def Return(self):
         app.sm.current = "Main"
@@ -100,8 +103,9 @@ class ScreenAplicacao(Screen):
             self.ids.contador.text = "Rotina: 1"
             self.ids.continuar.text = "Continuar"
             
-            nextFrase = app.sequencias[self.sequencia][0]  
-            self.ids.FraseAplicacao.text = self.listaFrases[nextFrase]
+            i = self.name[-1]
+            app.screenMain.ids.TabPreparacao.ids[i].disabled = False
+            app.screenMain.ids.TabAplicacao.ids[i].disabled = True
             return
         
         
