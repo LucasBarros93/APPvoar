@@ -1,3 +1,5 @@
+#cd Desktop\PythonApp\Voar
+
 from kivymd.app import MDApp
 from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivymd.uix.tab import MDTabsBase
