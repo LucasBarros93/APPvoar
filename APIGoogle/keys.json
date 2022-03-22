@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "apitopython",
+  "private_key_id": "f4593def80d62f3c11c43c5e062b2e8eb65c3fc7",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCs78oyCKZ/qb4J\nUxWl125fFsAsijR5syOhRehRVU7TX6ifzK9z/TV+5M7N9Kx71xTAYBepju/Fbgz2\nVLuM3L9UYJuYhluo1HAUHXA1wZQYyQYXm22S1hrRIBqGCCrHp2VMClkmi9q8h9M7\np01LkV28pGaUTLWBslo5LlF4MBFOen88lwIYLdnMjI82Lfrnz6iYBrd/moT9Gj62\n2sMSmx4RH4p4OFVi2ABsdgMSpoRZ5m827yxDmxfiWwpQfdOhDAidM8OTslPyGW4/\ndUst1wKL0XSCYrsy2n++9ugi6uybQgo1DyV56nTXUwLfuaA6sBehwklv324WskX8\ncgp8PbOLAgMBAAECggEADy1GIej3b7m+V0Qm4LSM16R//gis/Uc258biUgz6C3vY\nKRoGBdhhcv7ylUmVP5MLG6zzNqq4KSv00EN0aDLRSb7muNaFwcXPBjzlJZqU/C3c\nLoMx9RJ8LQEzwrKByp7KuYco9sSMUEJdS91tX6Xkw5Lr+7TVswmreFwzwyf4xNm/\nLufOdlipjV8l5IET+jvOZm7aOt13NTaOIqFC4ixKdNGLd28uBEiUlHl5t6nSVldI\ncIbdh8kTRp2wLE/zGXwl6aQMDuc7oYmlUk5bKserqyurcq5X5Nv7/uW8K9kbUYXJ\nRfSJWzfuwLbBEdt3QAVu/5wKuGAVaAAvgrxzV+XMwQKBgQDmSDd05GSH+eMI4sG5\nr4MV0oWBun9Szkl1QDbmq+8CQEA82bQyKSyx3T3FHUZK4+wTdvbqmVWYyPO6ZeL6\nRhu5/5tgdqZ0TYK7XIu1cvQ/fjtY85Hk1kD70Z3KCt9nEMiYbxlnL+xPeXI5o/Mm\n6OOldIWmZu9cFrwB+o5obc4GywKBgQDAQBAsc+XPhJrTGVxX3Jh6ubLDysXHIMh+\nGXwoRYEmj2uKu4e+vsttUEH1fWWnmAuMkE7e4/OvI6/fgY42S5gMTg61XtHDnJvp\nqIHa7+1Ewz1ITBUGBeY8KOoml3cSrUEgPgMggvPuoo6QMFWogDbp0Wkh3sXtzzJx\nXd8AHPCuQQKBgQCNTKCinAXHnaAecqz2F+iyOjPrTxkTITrXtCg70CHe2rfP3rF/\n2d3v4VYmnfjkuQfBRczqVF2+WweaRyxH7z7SGTIotYUbdfgSqQ2cr8WJNBaMVSAf\nLww+t/c+4v8DibvcNMd8ll5EwbtB/QSUym/stRvQ5/ZVJioEeM5q631wkwKBgBN4\nKWsnDZX3eup3/gcT2wlKtxTm+yKQal2C3TUC3PJ3wc9Z8IRbtCRM5XEkEuBnIHxK\nvQILmckZ1xzOdQWAoFRWr1ykzp99w7hlDUmL1L6K+zDQK6zhehCLoDLqUe+9RgQq\n44wuVt/K7J8jlfkriuQhBgGdGvRbcGNUu1m6lJFBAoGBAMA28IBxdU7qnqx5jwoZ\npHNQIfRCD1ImzUs04xOZIJ/KSWI8CfVtp807kFaFO7NNaeU8JLXb/TogFYhyRJk2\npj80+URdMyKgvBR2ZvIFiSi+teM3LFNZflBVBVgVsp1gZK4ObTn/cOQGzHeZN+9t\nYos+pnyZkIi2P95GxS+5RTCm\n-----END PRIVATE KEY-----\n",
+  "client_email": "lucas-npks@apitopython.iam.gserviceaccount.com",
+  "client_id": "117603848241248425489",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/lucas-npks%40apitopython.iam.gserviceaccount.com"
+}
