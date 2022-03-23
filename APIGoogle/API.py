@@ -91,12 +91,15 @@ def SetNota(ID, rotina, nota):
     else:
         row[rotina+7] = nota
         
+    if rotina == 9:
+        row[0] = True
+        
     Range = "ativos!A" + str(lr)
     sheet.values().update(spreadsheetId=spreadsheetId,
                                     range=Range,
                                     valueInputOption="USER_ENTERED",
                                     body={"values": [row]}).execute()        
 
-#SetNota("c4", 1, "d-")        
+SetNota("c4", 9, "d-")        
 #print(GetActives())
 #SetNew("c","A","oi","mundo","!!!")
