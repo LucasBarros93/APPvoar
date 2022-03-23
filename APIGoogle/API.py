@@ -66,7 +66,37 @@ def SetNew(tipo, sequencia, frase1, frase2,frase3):
                                     valueInputOption="USER_ENTERED",
                                     body={"values": newRow}).execute()
 
+def SetNota(ID, rotina, nota):
+    sheet, spreadsheetId = GetSheet()
+    result = sheet.values().get(spreadsheetId=spreadsheetId,
+                                range="ativos!1:1000",
+                                majorDimension="ROWS").execute()
+    
+    values = result.get('values', [])
+    
+    lr = 1
+    for row in values:
+        try:
+            row.index(ID)
+            break
+        except:
+            lr += 1
+            continue  #TEM Q TA VENDO PQ SE N ACHAR A LINHA 'ELE' VOLTA A ULTIMA
+        
+    tamanho = len(row) -8
+    print(tamanho)
+    
+    if tamanho < rotina:
+        row.append(nota)
+    else:
+        row[rotina+7] = nota
+        
+    Range = "ativos!A" + str(lr)
+    sheet.values().update(spreadsheetId=spreadsheetId,
+                                    range=Range,
+                                    valueInputOption="USER_ENTERED",
+                                    body={"values": [row]}).execute()        
 
-
+#SetNota("c4", 1, "d-")        
 #print(GetActives())
 #SetNew("c","A","oi","mundo","!!!")
