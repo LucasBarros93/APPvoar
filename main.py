@@ -7,6 +7,8 @@ from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.gridlayout import MDGridLayout
 from kivymd.uix.navigationdrawer.navigationdrawer import MDNavigationDrawer
 
+from APIGoogle import API
+
 
 class ContentNavigationDrawer(MDNavigationDrawer):
     pass
@@ -59,6 +61,12 @@ class ScreenPreparacao(Screen):
             if data[key] == "":
                 self.ids.error.text = 'Preencha todos os itens antes de continuar'
                 return
+        
+        API.SetNew(self.name[-1],
+                   data["Sequencia"],
+                   data["Frase1"],
+                   data["Frase2"],
+                   data["Frase3"])
         
         #ENVIAR PARA O DRIVE()      ADICIONAR NO FUTURO
         self.Return()
