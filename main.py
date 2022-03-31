@@ -81,13 +81,14 @@ class ScreenPreparacao(Screen):
 
 class ScreenAplicacao(Screen):
     
-    def setting(self, listaFrases, sequencia, ID):
+    def setting(self, listaFrases, sequencia, ID, fraseInicial = 0):
         self.ID = ID
         self.listaFrases = listaFrases
         self.sequencia = sequencia
         
-        nextFrase = app.sequencias[self.sequencia][0]  
+        nextFrase = app.sequencias[self.sequencia][fraseInicial]
         self.ids.FraseAplicacao.text = self.listaFrases[nextFrase]
+        self.ids.contador.text = f"Rotina: {fraseInicial+1}"
     
     def Return(self):
         app.sm.current = "Main"
@@ -173,8 +174,10 @@ class VoarApp(MDApp):
             app.screenMain.ids.TabPreparacao.ids[tipo].disabled = True
             app.screenMain.ids.TabAplicacao.ids[tipo].disabled = False 
             
+            fraseInicial = len(rotina) - 8
+            
             app.sm.get_screen(f'Aplicacao{tipo}').setting(
-                [rotina[4],rotina[5],rotina[6]],rotina[3],rotina[1])
+                [rotina[4],rotina[5],rotina[6]],rotina[3],rotina[1], fraseInicial)
             
         
     def build(self):
