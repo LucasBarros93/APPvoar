@@ -161,8 +161,16 @@ class TabAplicacao(FloatLayout,MDTabsBase):
 class VoarApp(MDApp):
     def on_start(self):
         
-        for child in self.screenMain.ids.TabAplicacao.ids.BotoesApli.children:
-            child.disabled = True
+        actives = API.GetActives()
+        for rotina in actives:
+            tipo = rotina[2]
+
+            app.screenMain.ids.TabPreparacao.ids[tipo].disabled = True
+            app.screenMain.ids.TabAplicacao.ids[tipo].disabled = False 
+            
+            app.sm.get_screen(f'Aplicacao{tipo}').setting(
+                [rotina[4],rotina[5],rotina[6]],rotina[3])
+            
         
     def build(self):
         

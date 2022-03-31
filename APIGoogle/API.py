@@ -100,6 +100,6 @@ def SetNota(ID, rotina, nota):
                                     valueInputOption="USER_ENTERED",
                                     body={"values": [row]}).execute()        
 
-SetNota("c4", 9, "d-")        
+#SetNota("c4", 9, "d-")        
 #print(GetActives())
 #SetNew("c","A","oi","mundo","!!!")
