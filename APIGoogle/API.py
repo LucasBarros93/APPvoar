@@ -65,6 +65,8 @@ def SetNew(tipo, sequencia, frase1, frase2,frase3):
                                     range=Range,
                                     valueInputOption="USER_ENTERED",
                                     body={"values": newRow}).execute()
+    
+    return ID
 
 def SetNota(ID, rotina, nota):
     sheet, spreadsheetId = GetSheet()

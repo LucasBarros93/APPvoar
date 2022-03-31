@@ -62,7 +62,7 @@ class ScreenPreparacao(Screen):
                 self.ids.error.text = 'Preencha todos os itens antes de continuar'
                 return
         
-        API.SetNew(self.name[-1],
+        ID = API.SetNew(self.name[-1],
                    data["Sequencia"],
                    data["Frase1"],
                    data["Frase2"],
@@ -75,13 +75,14 @@ class ScreenPreparacao(Screen):
         app.screenMain.ids.TabPreparacao.ids[i].disabled = True
         app.screenMain.ids.TabAplicacao.ids[i].disabled = False
         app.sm.get_screen(f'Aplicacao{i}').setting([data["Frase1"],data["Frase2"],data["Frase3"]],
-                                           data["Sequencia"])
+                                           data["Sequencia"],ID)
         
         
 
 class ScreenAplicacao(Screen):
     
-    def setting(self, listaFrases, sequencia):
+    def setting(self, listaFrases, sequencia, ID):
+        self.ID = ID
         self.listaFrases = listaFrases
         self.sequencia = sequencia
         
@@ -97,6 +98,7 @@ class ScreenAplicacao(Screen):
         for child in self.ids.notas.children:
             
             if child.md_bg_color != app.theme_cls.primary_light:
+                nota = child.text
                 child.md_bg_color = app.theme_cls.primary_light
                 error = False
         
@@ -107,7 +109,9 @@ class ScreenAplicacao(Screen):
         self.ids.error.text = ''
         
         
+        
         rotina = int(self.ids.contador.text[-1]) #da merda se passar de 10
+        API.SetNota(self.ID, rotina, nota)
         if rotina+1 == 9:
             self.ids.continuar.text = "Terminar"
             self.ids.error.text = "Ultima rotina..."
@@ -121,6 +125,7 @@ class ScreenAplicacao(Screen):
             app.screenMain.ids.TabPreparacao.ids[i].disabled = False
             app.screenMain.ids.TabAplicacao.ids[i].disabled = True
             return
+        
         
         
         nextFrase = app.sequencias[self.sequencia][rotina]       
@@ -169,7 +174,7 @@ class VoarApp(MDApp):
             app.screenMain.ids.TabAplicacao.ids[tipo].disabled = False 
             
             app.sm.get_screen(f'Aplicacao{tipo}').setting(
-                [rotina[4],rotina[5],rotina[6]],rotina[3])
+                [rotina[4],rotina[5],rotina[6]],rotina[3],rotina[1])
             
         
     def build(self):
