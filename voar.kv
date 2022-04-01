@@ -266,7 +266,7 @@
                             
                         Toggle:
                             id: notas
-                            cols: 4
+                            cols: 5
                             spacing: 10
                             adaptive_size: True
                             pos_hint: {"center_x":.5}
@@ -288,6 +288,11 @@
                                 
                             MDFillRoundFlatButton:
                                 text: "D-"
+                                md_bg_color: app.theme_cls.primary_light
+                                on_press: notas.onClick(self)
+                            
+                            MDFillRoundFlatButton:
+                                text: "NR"
                                 md_bg_color: app.theme_cls.primary_light
                                 on_press: notas.onClick(self)
                                 
