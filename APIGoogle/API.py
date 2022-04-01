@@ -76,6 +76,8 @@ def SetNota(ID, rotina, nota):
     
     values = result.get('values', [])
     
+    nota = "'+" if nota == "+" else nota
+    
     lr = 1
     for row in values:
         try:
@@ -129,6 +131,6 @@ def returnNota(ID):
 
 
 #returnNota("N2")
-#SetNota("c4", 9, "d-")        
+#SetNota("N2", 2, "D+")        
 #print(GetActives())
 #SetNew("c","A","oi","mundo","!!!")
