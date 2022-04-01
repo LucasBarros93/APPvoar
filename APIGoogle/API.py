@@ -86,7 +86,6 @@ def SetNota(ID, rotina, nota):
             continue  #TEM Q TA VENDO PQ SE N ACHAR A LINHA 'ELE' VOLTA A ULTIMA
         
     tamanho = len(row) -8
-    print(tamanho)
     
     if tamanho < rotina:
         row.append(nota)
@@ -102,6 +101,34 @@ def SetNota(ID, rotina, nota):
                                     valueInputOption="USER_ENTERED",
                                     body={"values": [row]}).execute()        
 
+def returnNota(ID):
+    sheet, spreadsheetId = GetSheet()
+    result = sheet.values().get(spreadsheetId=spreadsheetId,
+                                range="ativos!1:1000",
+                                majorDimension="ROWS").execute()
+    
+    values = result.get('values', [])
+    
+    lr = 1
+    for row in values:
+        try:
+            row.index(ID)
+            break
+        except:
+            lr += 1
+            continue  #TEM Q TA VENDO PQ SE N ACHAR A LINHA 'ELE' VOLTA A ULTIMA
+            
+        
+    row[-1] = ''        
+        
+    Range = "ativos!A" + str(lr)
+    sheet.values().update(spreadsheetId=spreadsheetId,
+                                    range=Range,
+                                    valueInputOption="USER_ENTERED",
+                                    body={"values": [row]}).execute()        
+
+
+#returnNota("N2")
 #SetNota("c4", 9, "d-")        
 #print(GetActives())
 #SetNew("c","A","oi","mundo","!!!")

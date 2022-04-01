@@ -149,7 +149,7 @@ class ScreenAplicacao(Screen):
         previousFrase = app.sequencias[self.sequencia][rotina-1]       
         self.ids.FraseAplicacao.text = self.listaFrases[previousFrase]
         
-        
+        API.returnNota(self.ID)
         self.ids.contador.text = f"Rotina: {rotina}"
 
 
