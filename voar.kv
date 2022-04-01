@@ -53,11 +53,19 @@
         DrawerClickableItem:
             icon: "information-outline"
             text: "Ver planos ativos"
+            on_press: app.sm.current = "Rotinas"
 
         DrawerClickableItem:
             icon: "information-outline"
             text: "Excluir planos ativo"
 
+
+
+<MySwiper@MDSwiperItem>
+
+    FitImage:
+        source: "gato.jpeg"
+        radius: [20,]
 
 
 
@@ -341,6 +349,47 @@
         ContentNavigationDrawer:
             id: nav_drawer
             md_bg_color: utils.get_color_from_hex("#f7f4e7")
+
+
+
+<ScreenRotinas>
+    MDNavigationLayout:
+
+        ScreenManager:
+   
+            MDScreen:   
+                MDBoxLayout:
+                    orientation: "vertical"
+                    spacing: 10
+
+                    MDToolbar:
+                        id: toolbar
+                        title: "Voar"
+                        icon: "git"
+                        left_action_items: [["arrow-left", lambda x: root.Return()],["menu", lambda x: nav_drawer.set_state("open")]]
+                        right_action_items: [["git", lambda x: x]]
+                        mode: "end"
+                    
+                    MDSwiper:
+                        size_hint_y: None
+                        height: root.height - toolbar.height
+                        #y: self.height
+                        
+                        MySwiper:
+
+                        MySwiper:
+
+                        MySwiper:
+
+                        MySwiper:
+
+                        MySwiper:
+                    
+                    
+        ContentNavigationDrawer:
+            id: nav_drawer
+            md_bg_color: utils.get_color_from_hex("#f7f4e7")
+
 
 
 

@@ -153,6 +153,11 @@ class ScreenAplicacao(Screen):
         self.ids.contador.text = f"Rotina: {rotina}"
 
 
+class ScreenRotinas(Screen):
+    def Return(self):
+        app.sm.current = "Main"
+
+
 
 class TabPreparacao(FloatLayout,MDTabsBase):
     pass
@@ -192,6 +197,9 @@ class VoarApp(MDApp):
         
         self.screenMain = ScreenMain(name="Main")
         self.sm.add_widget(self.screenMain)
+        
+        self.screenRotinas = ScreenRotinas(name="Rotinas")
+        self.sm.add_widget(self.screenRotinas)
         
         self.screenPreparacaoC = ScreenPreparacao(name="PreparacaoC")
         self.sm.add_widget(self.screenPreparacaoC)
