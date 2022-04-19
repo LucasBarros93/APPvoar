@@ -4,7 +4,7 @@ from datetime import date
 
 def GetSheet():
     SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
-    SERVICE_ACCOUNT_FILE = 'C:/Users/lucas/Desktop/PythonApp/Voar/APIGoogle/keys.json'
+    SERVICE_ACCOUNT_FILE = '/home/superuser/APPvoar/APIGoogle/keys.json'
     
     #creds = None
     creds = service_account.Credentials.from_service_account_file(

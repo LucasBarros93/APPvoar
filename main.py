@@ -5,13 +5,13 @@ from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.gridlayout import MDGridLayout
-from kivymd.uix.navigationdrawer.navigationdrawer import MDNavigationDrawer
+#from kivymd.uix.navigationdrawer.navigationdrawer import MDNavigationDrawer
 
 from APIGoogle import API
 
 
-class ContentNavigationDrawer(MDNavigationDrawer):
-    pass
+#class ContentNavigationDrawer(MDNavigationDrawer):
+ #   pass
 
 
 class Toggle(MDGridLayout):
