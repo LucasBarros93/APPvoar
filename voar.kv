@@ -23,41 +23,6 @@
     icon_color: text_color
     _no_ripple_effect: True
 
-<ContentNavigationDrawer> 
-    MDNavigationDrawerMenu:
-
-        MDNavigationDrawerHeader:
-            title: "APP Voar"
-            title_color: text_color
-            text: "frase de efeito foda"
-            title_color: text_color
-            spacing: "4dp"
-            padding: "12dp", 0, 0, "56dp"
-
-        MDNavigationDrawerLabel:
-            text: "Drive"
-
-        DrawerClickableItem:
-            icon: "google-drive"
-            text: "planilha"
-
-        DrawerLabelItem:
-            icon: "google-drive"
-            text: "sla kkkkkk"
-
-        MDNavigationDrawerDivider:
-
-        MDNavigationDrawerLabel:
-            text: "Em Execução"
-
-        DrawerClickableItem:
-            icon: "information-outline"
-            text: "Ver planos ativos"
-
-        DrawerClickableItem:
-            icon: "information-outline"
-            text: "Excluir planos ativo"
-
 
 
 
@@ -157,7 +122,7 @@
                     MDToolbar:
                         title: "Voar"
                         icon: "git"
-                        left_action_items: [["arrow-left", lambda x: root.Return()],["menu", lambda x: nav_drawer.set_state("open")]]
+                        left_action_items: [["arrow-left", lambda x: root.Return()]]
                         right_action_items: [["git", lambda x: x]]
                         mode: "end"
                     
@@ -226,11 +191,7 @@
                             id: continuar
                             text: "Salvar"
                             on_press: root.Save()
-                                
-                        
-        ContentNavigationDrawer:
-            id: nav_drawer
-            md_bg_color: utils.get_color_from_hex("#f7f4e7")
+
 
 
 
@@ -246,7 +207,7 @@
                     MDToolbar:
                         title: "Voar"
                         icon: "git"
-                        left_action_items: [["arrow-left", lambda x: root.Return()],["menu", lambda x: nav_drawer.set_state("open")]]
+                        left_action_items: [["arrow-left", lambda x: root.Return()]]
                         right_action_items: [["git", lambda x: x]]
                         mode: "end"
 
@@ -327,12 +288,7 @@
                         MDLabel:
                             id: contador
                             text: "Rotina: 1"
-                            
-                    
-                    
-        ContentNavigationDrawer:
-            id: nav_drawer
-            md_bg_color: utils.get_color_from_hex("#f7f4e7")
+
 
 
 
@@ -363,10 +319,44 @@
                             id: TabAplicacao
                             title: "Aplicacao"
                         
-                    
-        ContentNavigationDrawer:
-            id: nav_drawer
-            md_bg_color: utils.get_color_from_hex("#f7f4e7")
+         
+    MDNavigationDrawer:
+        id: nav_drawer
+        md_bg_color: utils.get_color_from_hex("#f7f4e7")
+    
+        MDNavigationDrawerMenu:
+
+            MDNavigationDrawerHeader:
+                title: "APP Voar"
+                title_color: text_color
+                text: "frase de efeito foda"
+                title_color: text_color
+                spacing: "4dp"
+                padding: "12dp", 0, 0, "56dp"
+
+            MDNavigationDrawerLabel:
+                text: "Drive"
+
+            DrawerClickableItem:
+                icon: "google-drive"
+                text: "planilha"
+
+            DrawerLabelItem:
+                icon: "google-drive"
+                text: "sla kkkkkk"
+
+            MDNavigationDrawerDivider:
+
+            MDNavigationDrawerLabel:
+                text: "Em Execução"
+
+            DrawerClickableItem:
+                icon: "information-outline"
+                text: "Ver planos ativos"
+
+            DrawerClickableItem:
+                icon: "information-outline"
+                text: "Excluir planos ativo"
             
             
             
