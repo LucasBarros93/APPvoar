@@ -2,28 +2,53 @@
 
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 
-#:set text_color get_color_from_hex("#4a4939")
-#:set focus_color get_color_from_hex("#e7e4c0")
-#:set ripple_color get_color_from_hex("#c5bdd2")
-#:set bg_color get_color_from_hex("#f7f4e7")
-#:set selected_color get_color_from_hex("#0c6c4d")
+<ItemDrawer>
+    theme_text_color: "Custom"
 
+    IconLeftWidget:
+        id: icon
+        icon: root.icon
+        theme_text_color: "Custom"
 
-<DrawerClickableItem@MDNavigationDrawerItem>
-    focus_color: focus_color
-    unfocus_color: bg_color
-    text_color: text_color
-    icon_color: text_color
-    ripple_color: ripple_color
-    selected_color: selected_color
+<ContentNavigationDrawer>
+    orientation: "vertical"
+    #padding: "8dp"
+    #spacing: "8dp"
+    
+    MDNavigationDrawerHeader:
+        title: "APP Voar"
+        #title_color: text_color
+        text: "frase de efeito foda"
+        #title_color: text_color
+        spacing: "4dp"
+        padding: "12dp", 0, 0, "56dp"
+    
+    MDNavigationDrawerLabel:
+        text: "Drive"
+        
+    MDNavigationDrawerItem:
+        icon: "google-drive"
+        text: "planilha"
+        
+    MDNavigationDrawerItem:
+        icon: "google-drive"
+        text: "sla kkkkkk"
+        
+    MDNavigationDrawerDivider:
+    
+    MDNavigationDrawerLabel:
+        text: "Em Execução"
 
-<DrawerLabelItem@MDNavigationDrawerItem>
-    bg_color: bg_color
-    text_color: text_color
-    icon_color: text_color
-    _no_ripple_effect: True
+    MDNavigationDrawerItem:
+        icon: "information-outline"
+        text: "Ver planos ativos"
 
-
+    MDNavigationDrawerItem:
+        icon: "information-outline"
+        text: "Excluir planos ativo"
+    
+    
+    ScrollView:
 
 
 <TabPreparacao>
@@ -322,41 +347,8 @@
          
     MDNavigationDrawer:
         id: nav_drawer
-        md_bg_color: utils.get_color_from_hex("#f7f4e7")
-    
-        MDNavigationDrawerMenu:
 
-            MDNavigationDrawerHeader:
-                title: "APP Voar"
-                title_color: text_color
-                text: "frase de efeito foda"
-                title_color: text_color
-                spacing: "4dp"
-                padding: "12dp", 0, 0, "56dp"
-
-            MDNavigationDrawerLabel:
-                text: "Drive"
-
-            DrawerClickableItem:
-                icon: "google-drive"
-                text: "planilha"
-
-            DrawerLabelItem:
-                icon: "google-drive"
-                text: "sla kkkkkk"
-
-            MDNavigationDrawerDivider:
-
-            MDNavigationDrawerLabel:
-                text: "Em Execução"
-
-            DrawerClickableItem:
-                icon: "information-outline"
-                text: "Ver planos ativos"
-
-            DrawerClickableItem:
-                icon: "information-outline"
-                text: "Excluir planos ativo"
+        ContentNavigationDrawer:
             
             
             

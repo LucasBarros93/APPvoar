@@ -5,7 +5,15 @@ from kivy.uix.screenmanager import ScreenManager, Screen, NoTransition
 from kivymd.uix.tab import MDTabsBase
 from kivymd.uix.floatlayout import FloatLayout
 from kivymd.uix.gridlayout import MDGridLayout
+from kivy.uix.boxlayout import BoxLayout
+from kivymd.uix.list import OneLineIconListItem
+from kivy.properties import StringProperty
 
+class ContentNavigationDrawer(BoxLayout):
+    pass
+
+class ItemDrawer(OneLineIconListItem):
+    icon = StringProperty()
 
 class Toggle(MDGridLayout):
     def onClick(self,button):        
