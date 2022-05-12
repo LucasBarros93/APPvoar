@@ -2,53 +2,79 @@
 
 #:import get_color_from_hex kivy.utils.get_color_from_hex
 
-<ItemDrawer>
-    theme_text_color: "Custom"
-
-    IconLeftWidget:
-        id: icon
-        icon: root.icon
-        theme_text_color: "Custom"
-
 <ContentNavigationDrawer>
     orientation: "vertical"
     #padding: "8dp"
-    #spacing: "8dp"
+    spacing: "8dp"
+    height: self.minimum_height
     
-    MDNavigationDrawerHeader:
-        title: "APP Voar"
-        #title_color: text_color
-        text: "frase de efeito foda"
-        #title_color: text_color
-        spacing: "4dp"
-        padding: "12dp", 0, 0, "56dp"
-    
-    MDNavigationDrawerLabel:
-        text: "Drive"
+    MDLabel:
+        text: "APP Voar"
+        font_size: 40
+        size_hint_y: None
+        height: self.texture_size[1]
         
-    MDNavigationDrawerItem:
+    MDLabel:
+        text:"frase de efeito foda"
+        font_size: 20
+        size_hint_y: None
+        height: self.texture_size[1]
+    
+    MDSeparator:
+    
+    #Widget:
+     #   size_hint_y: None
+      #  height: 20
+
+    
+    MDLabel:
+        text: "Drive"
+        font_size: 15
+        size_hint_y: None
+        height: self.texture_size[1]
+        
+    MDRectangleFlatIconButton:
+        line_color: 0, 0, 0, 0
+        text_color: app.theme_cls.text_color
+        icon_color: app.theme_cls.text_color
         icon: "google-drive"
         text: "planilha"
         
-    MDNavigationDrawerItem:
+    MDRectangleFlatIconButton:
+        line_color: 0, 0, 0, 0
+        text_color: app.theme_cls.text_color
+        icon_color: app.theme_cls.text_color
         icon: "google-drive"
         text: "sla kkkkkk"
         
-    MDNavigationDrawerDivider:
-    
-    MDNavigationDrawerLabel:
+    MDSeparator:  
+        
+    MDLabel:
         text: "Em Execução"
-
-    MDNavigationDrawerItem:
+        font_size: 15
+        size_hint_y: None
+        height: self.texture_size[1]
+        
+    MDRectangleFlatIconButton:
+        line_color: 0, 0, 0, 0
+        text_color: app.theme_cls.text_color
+        icon_color: app.theme_cls.text_color
         icon: "information-outline"
         text: "Ver planos ativos"
-
-    MDNavigationDrawerItem:
+        
+    MDRectangleFlatIconButton:
+        line_color: 0, 0, 0, 0
+        text_color: app.theme_cls.text_color
+        icon_color: app.theme_cls.text_color
         icon: "information-outline"
         text: "Excluir planos ativo"
+        
+    Widget:
+
+    
+
     
     
-    ScrollView:
 
 
 <TabPreparacao>
